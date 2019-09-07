@@ -1,0 +1,42 @@
+active-directory:
+  client:
+    clientId: f4b2e65e-fe67-457f-9050-d0cfd10a1a4e
+    clientSecret: zc2?webpZ.MNGG7@u*SwVGYRZk56+B3t
+    accessTokenUri: https://login.microsoftonline.com/ca7d7e7e-3970-456c-8f70-70e55a8544cc/oauth2/v2.0/token
+    userAuthorizationUri: https://login.microsoftonline.com/ca7d7e7e-3970-456c-8f70-70e55a8544cc/oauth2/authorize
+    tokenName: access_token
+    authenticationScheme: header
+    clientAuthenticationScheme: form
+    scope:
+      - https://graph.microsoft.com/User.Read
+  resource:
+    userInfoUri: https://graph.microsoft.com/v1.0/me
+
+security:
+  oauth2:
+    client:
+      registered-redirect-uri: http://localhost:3000
+
+
+authentication:
+  client:
+    id: client
+    secret: secret
+    grant-types: password
+    scopes: read
+    refresh-token-validity: 3000
+    token-validity: 3000
+  message:
+    user-disabled: user disabled
+  open:
+    endpoints:
+      - /login/**
+      - /login**
+      - /login/active-directory**
+spring:
+  jpa:
+    properties:
+      javax:
+        persistence:
+          validation:
+            mode: none
